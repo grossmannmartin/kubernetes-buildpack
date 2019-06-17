@@ -21,6 +21,7 @@ RUN apk add --update --no-cache \
     openssh-client \
     py-crcmod \
     python \
+    python3 \
     tar \
     unzip \
     wget \
@@ -66,5 +67,8 @@ RUN curl --location https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/g
     gcloud config set component_manager/disable_update_check true && \
     gcloud config set metrics/environment github_docker_image && \
     rm -rf /tmp/*
+
+# Install AWS CLI
+RUN pip3 install --upgrade awscli
 
 VOLUME ["/root/.config"]
